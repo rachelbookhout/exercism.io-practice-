@@ -4,6 +4,9 @@ class Squares
   end
 
   def square_of_sums
+    answer = (1..@num).inject(0){|sum,number| sum + number}
+    @answer = answer**2
+    return @answer
   end
 
   def sum_of_squares
@@ -12,16 +15,10 @@ class Squares
   end
 
   def difference
+    square_of_sums
+    sum_of_squares
+    diff = @answer - @result
+    return diff
   end
 end
-
-
-# The sum of the squares of the first ten natural numbers is,
-
-#     1**2 + 2**2 + ... + 10**2 = 385
-
-# The square of the sum of the first ten natural numbers is,
-
-#     (1 + 2 + ... + 10)**2 = 55**2 = 3025
-
 

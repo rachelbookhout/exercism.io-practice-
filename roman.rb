@@ -19,10 +19,13 @@ class Fixnum
 
 
   def to_roman
+    if ROMAN_NUM[self] != nil
+      return ROMAN_NUM[self]
+    else
 
   end
 end
-
+end
 
 
 

@@ -22,9 +22,23 @@ class Fixnum
     if ROMAN_NUM[self] != nil
       return ROMAN_NUM[self]
     else
-
+      roman = ''
+      roman << 'M' * (self/1000)
+      roman << 'D' * (self%1000/500)
+      roman << 'C' * (self%500/100)
+      roman << 'L' * (self%100/50)
+      roman << 'X' * (self%50/10)
+      if self%50 ==9
+        roman << 'IX'
+      elsif self%5/1 == 4
+        roman << 'IV'
+      else
+        roman << 'V' * (self%10/5)
+        roman << 'I' * (self%5/1)
+      end
+    return roman
+    end
   end
-end
 end
 
 

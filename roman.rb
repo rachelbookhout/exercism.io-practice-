@@ -1,4 +1,3 @@
-require 'pry'
 class Fixnum
 
   ROMAN_NUM = {
@@ -25,21 +24,21 @@ class Fixnum
     else
       roman = ''
       roman << 'M' * (self/1000)
-      roman << 'D' * (self%1000/500)
-      if self%500/100 == 4
+      if self/100 == 4
         roman << 'CD'
-      elsif self%500/100 == 9
+      elsif self/100 == 9
         roman << 'CM'
       else
-      roman << 'C' * (self%500/100)
+        roman << 'D' * (self%1000/500)
+        roman << 'C' * (self%500/100)
       end
-      roman << 'L' * (self%100/50)
-      if self%50/10 ==4
+      if self/10%10 ==4
         roman << 'XL'
-      elsif self%50/10 ==9
+      elsif self/10%10 ==9
         roman << 'XC'
       else
-      roman << 'X' * (self%50/10)
+        roman << 'L' * (self%100/50)
+        roman << 'X' * (self%50/10)
       end
       if self%10 ==9
         roman << 'IX'

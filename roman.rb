@@ -29,13 +29,3 @@ end
 
 
 
-# In Roman numerals 1990 is MCMXC:
-
-# 1000=M
-# 900=CM
-# 90=XC
-
-# 2008 is written as MMVIII:
-
-# 2000=MM
-# 8=VIII

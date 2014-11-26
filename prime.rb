@@ -1,24 +1,10 @@
-require 'pry'
+require 'prime'
+
 class Prime
+  def self.nth(count)
+    fail ArgumentError, 'must be positive' if count < 1
 
-  def find_the_prime
-    @primes = [2]
-    (3..10005).each do |n|
-        binding.pry
-      primes.each do |prime|
-        binding.pry
-        if n%prime==0
-          primes << n
-          break
-        end
-      end
-    end
-   @primes
+    take(count).last
   end
-
-
-  def self.nth(index)
-    return @primes[index]
-  end
-
 end
+

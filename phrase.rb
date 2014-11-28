@@ -1,4 +1,3 @@
-require 'pry'
 class Phrase
 
   def initialize(words)
@@ -7,6 +6,8 @@ class Phrase
 
   def word_count
     @words = @words.downcase
+    @words.delete! ":.!&@$%^&"
+    @words.gsub!(","," ")
     @split_words = @words.split
     counts = {}
     @split_words.each do |word|
@@ -19,3 +20,5 @@ class Phrase
    counts
   end
 end
+
+

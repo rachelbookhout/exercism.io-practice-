@@ -1,6 +1,6 @@
 class Bob
   def hey(remark)
-    if remark.include?("!") && remark.upcase == remark
+    if remark.include?("!") || remark.upcase == remark
       return "Whoa, chill out!"
     elsif remark.end_with?("?")
       return "Sure."

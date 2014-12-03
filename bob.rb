@@ -1,11 +1,11 @@
 class Bob
   def hey(remark)
-    if remark.include?("!") || remark.upcase == remark
-      return "Whoa, chill out!"
-    elsif remark.end_with?("?")
-      return "Sure."
-    elsif remark.empty?
+    if remark.empty? || remark.include?("\"")
       return "Fine. Be that way!"
+     elsif remark.end_with?("?")
+      return "Sure."
+    elsif remark.include?("!") || remark.upcase == remark
+      return "Whoa, chill out!"
     else
       return "Whatever."
     end

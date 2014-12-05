@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'food_chain'
+require_relative 'foodchain'
 
 class FoodChainTest < MiniTest::Unit::TestCase
   attr_reader :song

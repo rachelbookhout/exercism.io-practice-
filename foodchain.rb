@@ -1,10 +1,7 @@
 class FoodChainSong
-  def initialize(song)
-    @song = song
-  end
 
   def verse(num)
-    case number
+    case num
     when 1
       "I know an old lady who swallowed a fly.\n" +
       "I don't know why she swallowed the fly. Perhaps she'll die.\n"
@@ -59,9 +56,15 @@ class FoodChainSong
     end
   end
 
-  def verses()
+  def verses(first, last)
+    first.upto(last).map do |number|
+      verse(number)
+    end.join("\n") + "\n"
   end
 
+   def sing
+    verses(1, 8)
+  end
 end
 
 

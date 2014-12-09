@@ -1,3 +1,4 @@
+require 'pry'
 class Binary
 
   def initialize(number)
@@ -5,12 +6,17 @@ class Binary
   end
 
   def to_decimal
-    @number = @number.to_s.split.reverse
+    if @number.to_f == 0.0
+      return 0
+    else
+    @numbers = @number.to_s.scan(/./).reverse
     binary_num = 0
-    @number.each_with_index do |num,index|
-      binary_num += num.to_f * 2**index
+    @numbers.each_with_index do |num,index|
+      binary_num += num.to_i * 2**index
     end
     binary_num
+    end
   end
 
 end
+

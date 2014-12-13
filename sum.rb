@@ -1,9 +1,7 @@
 require 'pry'
 class SumOfMultiples
 
-  # def initialize(*num)
-  #   @num = *num
-  # end
+
 
   def self.to(num)
     sum = 0
@@ -15,16 +13,20 @@ class SumOfMultiples
     sum
   end
 
-  # def to(bound)
-  #   sum = 0
-  #   (0...bound).each do |n|
-  #     @num.each do |x|
-  #       if n%x==0
-  #         sum += n
-  #       end
-  #     end
-  #   end
-  # end
+  def initialize(*num)
+    @num = num
+  end
 
+  def to(bound)
+    sum = 0
+    (0...bound).each do |n|
+      @num.each do |xo|
+        if n%xo == 0
+          sum += n
+        end
+      end
+    end
+    sum
+  end
 end
 

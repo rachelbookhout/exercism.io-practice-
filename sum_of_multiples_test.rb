@@ -29,7 +29,7 @@ class SumTest < MiniTest::Unit::TestCase
 
   def test_configurable_43_47_to_10000
 
-    assert_equal 2203160, SumOfMultiples.new(43, 47).to(10_000)
+    assert_equal 2223370, SumOfMultiples.new(43, 47).to(10_000)
   end
 
 end

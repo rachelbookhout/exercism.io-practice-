@@ -11,4 +11,10 @@ class School
     @school[level].sort
   end
 
+  def to_hash
+    sorted = @school.map { |grade, students| [ grade, students.sort ] }.sort
+    Hash[sorted]
+  end
 end
+
+

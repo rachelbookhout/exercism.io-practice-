@@ -4,7 +4,12 @@ class Series
     @string = string
   end
 
-  def slice(num)
+  def slices(num)
+    sliced = []
+    while string.length > num
+      x = string.slice![0..num-1]
+      sliced << x
+    end
     #num is the chunk that each division needs to have in it
     #It is coming from a string of numbers
     #needs to return an array of array [[1],[2]] or [[1,2], [3,4]]

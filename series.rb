@@ -1,7 +1,7 @@
 class Series
 
-  def initalize(string)
-    @string = string
+   def initialize(numeric_string)
+    @digits = convert_to_digits(numeric_string)
   end
 
   def slices(num)
@@ -16,4 +16,11 @@ class Series
     #slices are taken in order [[0,1,2],[1,2,3]]
   end
 
+ private
+
+  attr_reader :digits
+
+  def convert_to_digits(s)
+    s.chars.to_a.map(&:to_i)
+  end
 end

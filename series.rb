@@ -4,17 +4,18 @@ class Series
     @digits = convert_to_digits(numeric_string)
   end
 
-  def slices(num)
-    sliced = []
-    while @digits.length > num
-      x = digits.slice![0,num-1]
-      sliced << x
+    def slices(length)
+    if length > digits.length
+      fail ArgumentError.new('Not enough digits')
     end
-    #num is the chunk that each division needs to have in it
-    #It is coming from a string of numbers
-    #needs to return an array of array [[1],[2]] or [[1,2], [3,4]]
-    #slices are taken in order [[0,1,2],[1,2,3]]
-
+    result = []
+    i = -1
+    begin
+      i += 1
+      i2 = i + length - 1
+      result << digits[i..i2]
+    end while i2 < digits.size - 1
+    result
   end
 
  private
@@ -25,3 +26,4 @@ class Series
     s.chars.to_a.map(&:to_i)
   end
 end
+

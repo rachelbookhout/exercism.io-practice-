@@ -1,7 +1,12 @@
 class PhoneNumber
   attr_reader :num
   def initialize(num)
-    @num = num
+    @num = fix(num)
+  end
+
+  def fix(number)
+    return '0' * 10 if number.match(/[a-zA-Z]/)
+    number = number.gsub(/[^0-9]/, '')
   end
 
   def valid?

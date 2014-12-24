@@ -26,11 +26,15 @@ class PhoneNumber
   end
 
   def area_code
-
+    return num[0..2]
   end
 
   def to_s
-
+    if num.length == 11 && num.start_with?('1')
+      return "(#{num[1..3]}) #{num[4..6]}-#{num[7..10]}"
+    else
+      return "(#{num[0..2]}) #{num[3..5]}-#{num[6..9]}"
+    end
   end
 end
 

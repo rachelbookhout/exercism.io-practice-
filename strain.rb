@@ -1,7 +1,14 @@
-def keep(thing)
+class Array
 
-end
+  def keep
+    kept = []
+    each { |e| kept << e if yield(e) }
+    kept
+  end
 
-def discard(thing)
-
+  def discard
+    discarded = []
+    each { |e| discarded << e unless yield(e) }
+    discarded
+  end
 end

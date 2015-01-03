@@ -16,15 +16,13 @@ class BeerSong
     end
   end
 
-  def verses(start,stop)
-    i = 0
-    until start - i < stop
-      verse(start)
-      i += 1
-    end
+  def verses(starting, ending)
+    (ending..starting).to_a.reverse.map { |n| verse(n) }.join("\n") + "\n"
   end
 
   def sing
     verses(99,0)
   end
 end
+
+

@@ -13,7 +13,7 @@ class Anagram
     if item == word
       anagrams << item
     end
-    end #return the word
+    end
   return anagrams
 
   end

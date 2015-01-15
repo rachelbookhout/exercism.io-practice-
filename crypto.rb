@@ -1,10 +1,11 @@
 class Crypto
   attr_reader :string
-  def initalize(string)
+  def initialize(string)
     @string = string
   end
 
   def normalize_plaintext
+    @string=string.gsub(/[#,$,%,^,&,,,!]/,"")..delete(' ').downcase
   end
 
   def size

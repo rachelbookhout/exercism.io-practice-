@@ -20,8 +20,9 @@ class Crypto
 
   def plaintext_segments
     square = []
-    @text=@string.normalize_plaintext
+    @text= Crypto.new("#{@string}").normalize_plaintext
     until @text.length = 0
+      #has issue with .size
       if @text.length > @text.size
         square << @text.slice!(0,@text.size - 1)
       else

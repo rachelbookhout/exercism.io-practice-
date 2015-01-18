@@ -12,24 +12,20 @@ class Crypto
 
   def size
     @num = 1
-    until @string.size <= @num*@num
+    @string = Crypto.new("#{@string}").normalize_plaintext
+    until @string.length <= @num*@num
       @num +=1
     end
     return @num
   end
 
   def plaintext_segments
-    square = []
-    @text= Crypto.new("#{@string}").normalize_plaintext
-    until @text.length = 0
-      #has issue with .size
-      if @text.length > @text.size
-        square << @text.slice!(0,@text.size - 1)
-      else
-        square << @text
-      end
-    end
-    return square
+    chunk(normalize_plaintext, size)
+  end
+
+
+  def chunk(s, size)
+    s.scan(/.{1,#{size}}/)
   end
 
   def ciphertext

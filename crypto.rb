@@ -29,6 +29,16 @@ class Crypto
   end
 
   def ciphertext
+    @ciphered = []
+    @text = plaintext_segments
+    until @text.empty?
+      @text.each do |word|
+        array = word.chars
+        @ciphered << array.first
+        array.delete(array.first)
+      end
+    end
+    @ciphered.scan(/.{1,#{size}}/)
   end
 
   def normalize_ciphertext

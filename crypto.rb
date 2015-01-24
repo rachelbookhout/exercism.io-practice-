@@ -30,12 +30,17 @@ class Crypto
 
   def ciphertext
     @ciphered = []
+    #binding pry to see why it keeps looping
     @text = plaintext_segments
     until @text.empty?
       @text.each do |word|
+        binding.pry
         array = word.chars
+        binding.pry
         @ciphered << array.first
+        binding.pry
         array.delete(array.first)
+        binding.pry
       end
     end
     @ciphered.scan(/.{1,#{size}}/)

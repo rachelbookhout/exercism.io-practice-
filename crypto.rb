@@ -1,5 +1,3 @@
-require 'pry'
-
 class Crypto
   attr_reader :string
   def initialize(string)
@@ -28,25 +26,14 @@ class Crypto
     s.scan(/.{1,#{size}}/)
   end
 
-  def ciphertext
-    @ciphered = []
-    #binding pry to see why it keeps looping
-    @text = plaintext_segments
-    until @text.empty?
-      @text.each do |word|
-        binding.pry
-        array = word.chars
-        binding.pry
-        @ciphered << array.first
-        binding.pry
-        array.delete(array.first)
-        binding.pry
-      end
-    end
-    @ciphered.scan(/.{1,#{size}}/)
+   def ciphertext
+    plaintext_segments.map do |segment|
+      segment.split('').fill('', segment.length...size)
+    end.transpose.flatten.join
   end
 
   def normalize_ciphertext
+    chunk(ciphertext, 5).join(' ')
   end
 end
 
